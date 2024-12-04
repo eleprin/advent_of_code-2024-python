@@ -4,6 +4,18 @@
 # Sum the diffences
 
 
+def split_list_in_two(list_to_split):
+    left_list = []
+    right_list = []
+
+    for line in list_to_split:
+        left_and_right = line.split()
+        left_value = left_and_right[0]
+        right_value = left_and_right[len(left_and_right) - 1]
+        left_list.append(left_value)
+        right_list.append(right_value)
+    return (left_list,right_list)
+
 filename = 'input'
 
 with open(filename) as f:
@@ -11,16 +23,9 @@ with open(filename) as f:
     #                                ...    ...   ] 
     content = f.read().splitlines()
 
-    left_list = []
-    right_list = []
+    left_list,right_list = split_list_in_two(content)
    # total_distances = 0
     # line is a string. An element of a list of strings is a string
-    for line in content:
-        left_and_right = line.split()
-        left_number = left_and_right[0]
-        right_number = left_and_right[len(left_and_right) - 1]
-        left_list.append(left_number)
-        right_list.append(right_number)
     
     left_list.sort()
     right_list.sort()
